@@ -1,0 +1,20 @@
+# ambientes virtuais
+.venv/
+venv/
+env/
+
+# cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+.env
+.env.*
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp
