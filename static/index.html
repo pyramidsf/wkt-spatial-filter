@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Estudo WKT + Filtro Espacial</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@10.5.0/ol.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>Estudo WKT — Filtro Espacial Direto no GeoServer</header>
+
+<div id="setup">
+  <div class="input-group">
+    <label>Camada</label>
+    <input type="text" id="layer-name" placeholder="workspace:nome_da_camada" />
+  </div>
+  <div class="input-group">
+    <label>Coluna de geometria</label>
+    <input type="text" id="geom-column" placeholder="the_geom" value="the_geom" />
+  </div>
+  <button onclick="carregarCamada()">Carregar camada</button>
+</div>
+
+<div id="controls">
+  <span>Ferramenta:</span>
+  <button class="tool btn-polygon" id="btn-polygon" onclick="setDraw('Polygon')">Desenhar polígono</button>
+  <button class="tool btn-clear" onclick="clearDraw()">Limpar desenho</button>
+  <button class="tool btn-filter" id="btn-filter" onclick="aplicarFiltro()" disabled>Aplicar filtro na área</button>
+</div>
+
+<div id="main">
+  <div id="map"></div>
+  <div id="panel">
+    <h2>Estado atual</h2>
+    <div id="info">
+      <div class="row"><span class="label">Camada:</span> <span id="info-layer">nenhuma</span></div>
+      <div class="row"><span class="label">WKT desenhado:</span></div>
+      <div id="wkt-box">—</div>
+      <div class="row" style="margin-top:12px;"><span class="label">Filtro CQL aplicado:</span></div>
+      <div id="cql-box">—</div>
+    </div>
+    <h2>Log</h2>
+    <div id="log">
+      <div id="empty-msg">Nenhuma ação ainda.</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/ol@10.5.0/dist/ol.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
